@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #__next {
+    @apply h-full;
+  }
+}
+
+body {
+  @apply bg-slate-50 text-slate-700 transition-colors duration-200 dark:bg-slate-800 dark:text-slate-200;
+}
