@@ -28,7 +28,6 @@ const Home: NextPage = () => {
           name="description"
           content={homeTranslation("metaDescription") || ""}
         />
-        {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <section
         id="hero"
@@ -40,7 +39,7 @@ const Home: NextPage = () => {
             Web developer.
           </div>
         </h1>
-        <div className="max-w-2xl sm:text-xl">
+        <div className="prose prose-slate max-w-2xl dark:prose-invert sm:prose-xl">
           <Balancer>{homeTranslation("hero.description")}</Balancer>
         </div>
       </section>
@@ -48,18 +47,18 @@ const Home: NextPage = () => {
         id="about"
         className="mx-auto my-14 max-w-5xl sm:py-20 md:py-24 "
       >
-        <h2 className="mb-10 text-3xl font-semibold sm:text-4xl">
+        <h2 className="mb-6 text-2xl font-bold">
           {homeTranslation("about.title")}
         </h2>
-        <div className="flex flex-col gap-16 lg:flex-row ">
-          <div className="space-y-4 lg:col-span-2">
+        <div className="flex flex-col gap-16 lg:flex-row">
+          <div className="prose prose-slate dark:prose-invert">
             <p>{homeTranslation("about.firstParagraph")}</p>
             <p>{homeTranslation("about.secondParagraph")}</p>
             <p>{homeTranslation("about.thirdParagraph")}</p>
-            <ul className="space-y-1 py-4">
+            <ul className="py-4">
               {technologiesList.map((item) => (
                 <li key={item} className="flex items-center gap-1">
-                  <FiChevronRight className="stroke-[3] text-indigo-500 dark:text-indigo-400" />
+                  <FiChevronRight className="m-0 stroke-[3] text-indigo-500 dark:text-indigo-400" />
                   {item}
                 </li>
               ))}
@@ -78,27 +77,22 @@ const Home: NextPage = () => {
       </section>
       <section
         id="projects"
-        className="mx-auto my-14 max-w-5xl sm:py-20 md:py-24 "
+        className="prose prose-slate mx-auto my-14 max-w-5xl dark:prose-invert sm:py-20 md:py-24"
       >
-        <h2 className="mb-10 text-3xl font-semibold sm:text-4xl">
-          {homeTranslation("projects.title")}
-        </h2>
-        <ul>
-          <li className="">
-            <Link href="/remax-peak">
-              <div className="relative overflow-hidden rounded-md shadow-lg">
-                <Image
-                  src={RemaxImg}
-                  alt="Zrzut strony głównej remax-peak.pl"
-                />
-              </div>
-            </Link>
-            <h3 className="mb-4 mt-8 text-xl font-semibold sm:text-2xl">
-              <Link href="/remax-peak">RE/MAX Peak</Link>
-            </h3>
-            <p>{homeTranslation("projects.remaxPeak")}</p>
-          </li>
-        </ul>
+        <h2 className="">{homeTranslation("projects.title")}</h2>
+        <Link href="/remax-peak">
+          <div className="relative overflow-hidden rounded-md shadow-lg">
+            <Image
+              src={RemaxImg}
+              alt="Zrzut strony głównej remax-peak.pl"
+              className="my-0"
+            />
+          </div>
+        </Link>
+        <h3 className="">
+          <Link href="/remax-peak">RE/MAX Peak</Link>
+        </h3>
+        <p>{homeTranslation("projects.remaxPeak")}</p>
       </section>
       <section id="contact"></section>
     </>

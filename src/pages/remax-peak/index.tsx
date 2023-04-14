@@ -41,14 +41,14 @@ export default function RemaxPeak() {
             >
               {commonTranslation("goToSite")}
             </a>
-            <h2 className="mb-1">{projectTranslation("stack")}</h2>
+            <h2>{projectTranslation("stack")}</h2>
             <ul className="mb-8 pl-0">
               {stackList.map((item) => (
                 <li
                   key={item}
                   className="flex items-center gap-1 sm:inline-flex"
                 >
-                  <FiChevronRight className="stroke-[4] text-indigo-500 dark:text-indigo-400" />
+                  <FiChevronRight className="m-0 stroke-[4] text-indigo-500 dark:text-indigo-400" />
                   {item}
                 </li>
               ))}
