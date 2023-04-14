@@ -1,0 +1,26 @@
+{
+  "introduction": {
+    "firstParagraph": "remax-peak.pl is an site built on top of the Next.js framework for a real estate agency based in Łódź, Poland. It serves as a platform to advertise the agency, allowing users to view property listings, read blog posts, and contact the agency through forms. The site also provides comprehensive information about the company."
+  },
+  "stack": "Stack",
+  "goal": {
+    "heading": "Project goal",
+    "firstParagraph": "The main goals were to connect the site to an external API which provides property listings, allow users to filter listings and view property details, connect the site to a CMS to enable the owners to create and edit content (such as blog posts), and make the site accessible and SEO-friendly.",
+    "secondParagraph": "The most important steps in defining the development process were choosing a CMS and hosting method based on the client's needs and budget."
+  },
+  "features": {
+    "heading": "Features",
+    "firstParagraph": "The website is designed to be user-friendly, responsive, accessible, and performant. It looks good and is readable on every screen size, and can be easily navigated with a keyboard. Additionally, the layout adjusts itself to the base font size set by the user.",
+    "secondParagraph": "The website implements a custom consent banner to control third-party scripts, which is configured to work with Google Tag Manager. The desktop navbar is set to hide when scrolling down and show when scrolling up. Content can be easily added or edited through a self-hosted CMS. The sitemap for static routes is generated at build time, and for dynamic routes, it is generated on demand. Additionally, the app is cheap to host."
+  },
+  "problems": {
+    "heading": "Problems and thought process",
+    "firstParagraph": "The first major concern was choosing a CMS. I opted for Strapi because it is a popular headless CMS and is free when self-hosted. The monthly cost of running the website was a significant factor, so the hosting solution had to be chosen accordingly. Choosing a VPS allowed me to install and host everything I needed.",
+    "secondParagraph": "The next problem arose due to a quota limit on the external API for fetching property listings. To reliably deliver property data on demand to users, I had to cache the listings in a database. I used Prisma for this purpose because of its popularity and type safety (I am using TypeScript). The database of choice was SQLite because it is easy to set up and can handle the traffic on the site. If needed, migrating to another database in the future should not cause much trouble as the database can be destroyed and recreated at will since it is only used for caching. The database is synchronized with the external API on an hourly basis using a cronjob that I configured on the server.",
+    "thirdParagraph": "Finally, in terms of accessible components, some of them were challenging to implement. To simplify this process, I decided to use the unstyled component library, Radix UI. Its primitives are well-documented and easy to style."
+  },
+  "lessons": {
+    "heading": "Lessons learned",
+    "firstParagraph": "This was my first time deploying to a VPS, so I had to take care of tasks such as setting up an SSL certificate, learning how to configure NGINX and cronjobs, among others. Additionally, this was my first time working with many of the tools used for this project, including Strapi, Next.js, Radix-UI, React Spring, and Prisma. While I am satisfied with most of these tools, I found React Spring's documentation challenging to understand. As a result, I may use another library for similar projects in the future. For this portfolio site, I am trying out Framer Motion."
+  }
+}

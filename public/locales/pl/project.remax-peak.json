@@ -1,0 +1,26 @@
+{
+  "introduction": {
+    "firstParagraph": "remax-peak.pl to strona zbudowana na frameworku Next.js dla agencji nieruchomości z siedzibą w Łodzi. Służy jako platforma do promowania agencji, umożliwia użytkownikom przeglądanie ofert nieruchomości, czytanie blogów i kontakt z agencją za pośrednictwem formularzy. Strona dostarcza również kompleksowych informacji o firmie."
+  },
+  "stack": "Wykorzystane technologie",
+  "goal": {
+    "heading": "Cel projektu",
+    "firstParagraph": "Głównym celem było połączenie strony z zewnętrznym API dostarczającym oferty nieruchomości, umożliwienie użytkownikom filtrowania ofert i przeglądania ich szczegółów, połączenie strony z systemem CMS umożliwiającym właścicielom tworzenie i edycję treści (np. postów na blogu), oraz sprawienie, że strona będzie posiadała ułatwienia dostępu i będzie przyjazna dla wyszukiwarek internetowych (SEO).",
+    "secondParagraph": "Najważniejszymi krokami, definiującymi proces deweloperski były wybór systemu CMS i metody hostingu, które odpowiadały potrzebom i budżetowi klienta."
+  },
+  "features": {
+    "heading": "Funkcjonalność",
+    "firstParagraph": "Strona została zaprojektowana z myślą o ułatwieniach dostepu, responsywności, dostępności i wydajności. Wygląda dobrze i jest czytelna na każdym rozmiarze ekranu, a do jej łatwo nawigowalna przy użyciu klawiatury. Ponadto układ strony dostosowuje się do rozmiaru czcionki ustawionego przez użytkownika.",
+    "secondParagraph": "Zaimplementowałem na stronie baner zgody na skrypty zewnętrzne, który jest skonfigurowany do pracy z Google Tag Manager. Belka z nawigacją na wersji dekstopowej jest ustawiona na ukrywanie się przy przewijaniu w dół i pokazywanie się przy przewijaniu w górę. Treść można łatwo dodawać lub edytować za pomocą hostowanego na VPS CMSa. Mapa witryny dla statycznych ścieżek generowana jest podczas budowania strony, a dla dynamicznych ścieżek generowana jest na żądanie. Dodatkowo miesięczne koszty hostingu aplikacji są niskie."
+  },
+  "problems": {
+    "heading": "Problemy i proces myślowy",
+    "firstParagraph": "Pierwszym poważnym problemem było wybranie odpowiedniego systemu CMS. Wybrałem Strapi, ponieważ jest popularnym headless CMS i jest darmowy przy hostowaniu na własnym serwerze. Miesięczny koszt prowadzenia strony był istotnym czynnikiem, więc metoda hostingu musiała być dostosowana do potrzeb klienta.",
+    "secondParagraph": "Następny problem wynikł z limitu zapytań do zewnętrzego API, służącego do pobierania ofert nieruchomości. Aby niezawodnie dostarczać użytkownikom dane o nieruchomościach, musiałem cachować oferty w bazie danych. Do tego celu użyłem Prismy ze względu na popularność i type safety (z uwagi na to, że korzystam z  TypeScripta). Wybrałem SQLite jako bazę danych, ponieważ jest łatwe do skonfigurowania i wystarczy, żeby obsłużyć ruch na stronie. W razie potrzeby, migracja do innej bazy danych w przyszłości nie powinna sprawić dużych problemów, ponieważ baza danych może być usunięta i stworzona ponownie wedle uznania, ponieważ jest używana tylko do cachowania danych. Baza danych jest synchronizowana z zewnętrznym API co godzinę za pomocą cronjoba, którego skonfigurowałem na serwerze.",
+    "thirdParagraph": "Na koniec, jeśli chodzi o komponenty z ułatwieniami dostępu dla użytkowników z niepełnosprawnościami, niektóre z nich okazały się trudne do zaimplementowania. Aby uprościć ten proces, zdecydowałem się skorzystać z biblioteki niestylowanych komponentów - Radix UI. Komponenty są dobrze udokumentowane i łatwe do stylizacji."
+  },
+  "lessons": {
+    "heading": "Wyniesione lekcje",
+    "firstParagraph": "To był mój pierwszy raz, kiedy robiłem deployment na VPS, więc musiałem zadbać, między innymi, o rzeczy takie jak uzyskanie certyfikatu SSL, konfigurację NGINX i ustawienie cronjobów. Dodatkowo,  pierszy raz pracowałem z wieloma narzędziami używanymi w tym projekcie, w tym Strapi, Next.js, Radix-UI, React Spring i Prisma. Chociaż jestem zadowolony z większości z tych narzędzi, to dokumentacja React Spring była według mnie trudna do zrozumienia. W rezultacie, w przyszłości mogę zdecydować się na użycie innej biblioteki przy tego typu projektach. Na potrzeby mojej strony portfolio, testuję Framer Motion."
+  }
+}

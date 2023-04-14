@@ -1,0 +1,18 @@
+{
+  "metaDescription": "Developer, którego celem jest budowanie stron z nastawieniem na ułatwienia dostępu i przyjazność użytkownikowi.",
+  "hero": {
+    "slogan": "Cześć. Jestem Adam.",
+    "description": "Moim celem jest tworzenie dostępnych, przyjaznych użytkownikowi stron internetowych, z naciskiem na wspaniałe wrażenia z użytkowania."
+  },
+  "about": {
+    "title": "O mnie",
+    "firstParagraph": "Cześć, nazywam się Adam. Jestem człowiekiem, który lubi kodować i wypróbowywać nowe technologie.",
+    "secondParagraph": "Lata temu, kiedy wybierałem swoją ścieżkę edukacyjną, postanowiłem wybrać technikum mechatroniczne. Podczas czasu, który spędziłem w szkole, najbardziej podobały mi się zajęcia z programowania sterowników PLC. Jakiś czas później obroniłem tytuł inżyniera z mechaniki i budowy maszyn i zacząłem pracować jako technik. Zawsze chciałem zagłębić się bardziej w świat programowania i postanowiłem, że może teraz jest dobry moment, gdy jestem jeszcze na początku kariery. Kto wie? Być może mi się spodoba i zmienię swoją zaplanowaną ścieżkę zawodową?",
+    "thirdParagraph": "No więc, zacząłem uczyć się programowania pod koniec 2021 roku i faktycznie mi się to podoba. Od tego czasu spróbowałem kilku języków, wielu różnych technologii i narzędzi. Te, z których obecnie głównie korzystam wymieniam poniżej:",
+    "fourthParagraph": "Jednakże nieustannie śledzę nowe trendy i testuję kolejne narzędzia, aby ocenić, czy powinienem włączyć je do swojego zestawu."
+  },
+  "projects": {
+    "title": "Projekty",
+    "remaxPeak": "Strona agencji nieruchomości zbudowana od podstaw z wykorzystaniem Next.js i Strapi."
+  }
+}
