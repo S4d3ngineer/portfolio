@@ -1,4 +1,6 @@
 {
+  "metaTitle": "RE/MAX Peak - project details",
+  "metaDescription": "Site built on top of the Next.js framework for real estate agency based in Łódź, Poland.",
   "introduction": {
     "firstParagraph": "remax-peak.pl is an site built on top of the Next.js framework for a real estate agency based in Łódź, Poland. It serves as a platform to advertise the agency, allowing users to view property listings, read blog posts, and contact the agency through forms. The site also provides comprehensive information about the company."
   },

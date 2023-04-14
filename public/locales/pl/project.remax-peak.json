@@ -1,4 +1,6 @@
 {
+  "metaTitle": "RE/MAX Peak - szegóły projektu",
+  "metaDescription": "Strona zbudowana jest przy pomocy frameworku Next.js dla agencji nieruchomości z siedzibą w Łodzi.",
   "introduction": {
     "firstParagraph": "remax-peak.pl to strona zbudowana na frameworku Next.js dla agencji nieruchomości z siedzibą w Łodzi. Służy jako platforma do promowania agencji, umożliwia użytkownikom przeglądanie ofert nieruchomości, czytanie blogów i kontakt z agencją za pośrednictwem formularzy. Strona dostarcza również kompleksowych informacji o firmie."
   },
