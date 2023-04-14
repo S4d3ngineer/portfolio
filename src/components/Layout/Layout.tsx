@@ -25,10 +25,10 @@ export default function Layout({ children }: Props) {
   return (
     <div className="flex min-h-full flex-col justify-between">
       <header className="absolute left-0 right-0 top-0 mx-auto flex w-full max-w-7xl items-baseline justify-between px-4 py-4 sm:px-8">
-        <div className="text-[30px] font-semibold">
+        <Link href="/" className="text-[30px] font-semibold">
           <span className="text-indigo-500 dark:text-indigo-400">A</span>
           <span className="relative right-1">Arkuszyński</span>
-        </div>
+        </Link>
         <div className="flex items-center gap-2 space-x-1 text-[24px]">
           {isMounted && (
             <AnimatePresence>
@@ -83,9 +83,9 @@ export default function Layout({ children }: Props) {
       </header>
       <main className="flex-grow px-8">{children}</main>
       <footer className="mx-auto my-8 flex max-w-7xl items-center justify-center gap-4">
-        <Link href="https://github.com/S4d3ngineer" target="_blank">
+        <a href="https://github.com/S4d3ngineer" target="_blank">
           <IoLogoGithub size={32} />
-        </Link>
+        </a>
         {/* TODO: add pl link in the future */}
         <Link
           href="https://www.linkedin.com/in/adam-arkuszynski/"
