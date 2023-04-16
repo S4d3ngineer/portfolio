@@ -94,9 +94,9 @@ const Home: NextPage = () => {
       {/* TODO: localization */}
       <section
         id="contact"
-        className="mx-auto my-14 max-w-2xl sm:my-24 md:my-36"
+        className="my-14 w-full sm:mx-auto sm:my-24 md:my-36 lg:max-w-2xl"
       >
-        <h2 className="mx-auto mb-12 text-center text-4xl font-bold">
+        <h2 className="mb-6 text-2xl font-bold lg:mb-12 lg:text-center lg:text-4xl">
           Contact
         </h2>
         <form
@@ -104,14 +104,14 @@ const Home: NextPage = () => {
           action="https://formsubmit.co/0eace010ac3e7ca415b7d215a2fbea69"
           method="POST"
         >
-          <div className="flex space-x-4">
-            <div className="w-1/2">
+          <div className="flex flex-col gap-6 sm:flex-row sm:gap-3">
+            <div className="w-full sm:w-1/2">
               <label htmlFor="name" className="font-medium">
                 Name
               </label>
               <input id="name" name="name" type="text" required />
             </div>
-            <div className="w-1/2">
+            <div className="w-full sm:w-1/2">
               <label htmlFor="email" className="font-medium">
                 Email
               </label>
