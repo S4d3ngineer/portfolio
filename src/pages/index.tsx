@@ -9,6 +9,9 @@ import MyPicture from "public/my-picture.png";
 import RemaxImg from "public/remax-screenshot.png";
 import { FiChevronRight } from "react-icons/fi";
 import Link from "next/link";
+import { z } from "zod";
+import { type SubmitHandler, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const technologiesList = [
   "TypeScript",
@@ -17,8 +20,32 @@ const technologiesList = [
   "Styled Components",
 ];
 
+const FormSchema = z.object({
+  name: z.string(),
+  email: z.string().email(),
+  message: z.string().trim().min(1, { message: "Message cannot be empty" }),
+});
+
+type FormSchemaType = z.infer<typeof FormSchema>;
+
 const Home: NextPage = () => {
   const { t: homeTranslation } = useTranslation("home");
+
+  const {
+    register,
+    handleSubmit,
+    trigger,
+    formState: { errors },
+  } = useForm<FormSchemaType>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  const onSubmit: SubmitHandler<FormSchemaType> = async (data, e) => {
+    const isValid = await trigger();
+    if (!isValid) {
+      e?.preventDefault();
+    }
+  };
 
   return (
     <>
@@ -103,19 +130,35 @@ const Home: NextPage = () => {
           className="space-y-6"
           action="https://formsubmit.co/0eace010ac3e7ca415b7d215a2fbea69"
           method="POST"
+          noValidate
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          // onSubmit={handleSubmit(onSubmit)}
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          onSubmit={async (e) => {
+            const isValid = await trigger();
+            if (!isValid) {
+              e.preventDefault();
+            }
+          }}
         >
           <div className="flex flex-col gap-6 sm:flex-row sm:gap-3">
             <div className="w-full sm:w-1/2">
               <label htmlFor="name" className="font-medium">
                 Name
               </label>
-              <input id="name" name="name" type="text" required />
+              <input id="name" type="text" {...register("name")} />
+              {errors.name && (
+                <p className="text-sm text-red-500">{errors.name?.message}</p>
+              )}
             </div>
             <div className="w-full sm:w-1/2">
               <label htmlFor="email" className="font-medium">
                 Email
               </label>
-              <input id="email" name="email" type="email" required />
+              <input id="email" type="email" {...register("email")} />
+              {errors.email && (
+                <p className="text-sm text-red-500">{errors.email?.message}</p>
+              )}
             </div>
           </div>
           <div>
@@ -124,11 +167,13 @@ const Home: NextPage = () => {
             </label>
             <textarea
               id="message"
-              name="message"
-              required
               rows={9}
+              {...register("message")}
               className="resize-none"
             />
+            {errors.message && (
+              <p className="text-sm text-red-500">{errors.message.message}</p>
+            )}
           </div>
           <button className="mx-auto block w-full rounded-lg bg-indigo-500 px-3 py-2 font-medium text-slate-200">
             Send email
