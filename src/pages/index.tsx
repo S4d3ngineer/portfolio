@@ -43,10 +43,7 @@ const Home: NextPage = () => {
           <Balancer>{homeTranslation("hero.description")}</Balancer>
         </div>
       </section>
-      <section
-        id="about"
-        className="mx-auto my-14 max-w-5xl sm:py-20 md:py-24 "
-      >
+      <section id="about" className="mx-auto my-14 max-w-5xl sm:my-24 md:my-36">
         <h2 className="mb-6 text-2xl font-bold">
           {homeTranslation("about.title")}
         </h2>
@@ -77,9 +74,9 @@ const Home: NextPage = () => {
       </section>
       <section
         id="projects"
-        className="prose prose-slate mx-auto my-14 max-w-5xl dark:prose-invert sm:py-20 md:py-24"
+        className="prose prose-slate mx-auto my-14 max-w-5xl dark:prose-invert sm:my-24 md:my-36"
       >
-        <h2 className="">{homeTranslation("projects.title")}</h2>
+        <h2>{homeTranslation("projects.title")}</h2>
         <Link href="/remax-peak">
           <div className="relative overflow-hidden rounded-md shadow-lg">
             <Image
@@ -89,12 +86,55 @@ const Home: NextPage = () => {
             />
           </div>
         </Link>
-        <h3 className="">
+        <h3>
           <Link href="/remax-peak">RE/MAX Peak</Link>
         </h3>
         <p>{homeTranslation("projects.remaxPeak")}</p>
       </section>
-      <section id="contact"></section>
+      {/* TODO: localization */}
+      <section
+        id="contact"
+        className="mx-auto my-14 max-w-2xl sm:my-24 md:my-36"
+      >
+        <h2 className="mx-auto mb-12 text-center text-4xl font-bold">
+          Contact
+        </h2>
+        <form
+          className="space-y-6"
+          action="https://formsubmit.co/0eace010ac3e7ca415b7d215a2fbea69"
+          method="POST"
+        >
+          <div className="flex space-x-4">
+            <div className="w-1/2">
+              <label htmlFor="name" className="font-medium">
+                Name
+              </label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div className="w-1/2">
+              <label htmlFor="email" className="font-medium">
+                Email
+              </label>
+              <input id="email" name="email" type="email" required />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="message" className="font-medium">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows={9}
+              className="resize-none"
+            />
+          </div>
+          <button className="mx-auto block w-full rounded-lg bg-indigo-500 px-3 py-2 font-medium text-slate-200">
+            Send email
+          </button>
+        </form>
+      </section>
     </>
   );
 };
