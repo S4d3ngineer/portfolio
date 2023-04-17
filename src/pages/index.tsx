@@ -60,9 +60,7 @@ const Home: NextPage = () => {
   const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
     const mailData = {
       subject: `Portfiolio contact from ${data.name}`,
-      body: `Dane kontaktowe:\nemail: ${data.email || "brak"} \n\n${
-        data.message
-      }`,
+      body: `contact email: ${data.email || "brak"} \n\n${data.message}`,
     };
 
     try {
