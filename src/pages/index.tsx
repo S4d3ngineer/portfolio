@@ -100,7 +100,7 @@ const Home: NextPage = () => {
           <Balancer>{homeTranslation("hero.description")}</Balancer>
         </div>
       </section>
-      <section id="about" className="mx-auto my-14 max-w-5xl sm:my-24 md:my-36">
+      <section id="about" className="mx-auto mt-14 max-w-5xl sm:mt-24 md:mt-40">
         <h2 className="mb-6 text-2xl font-bold">
           {homeTranslation("about.title")}
         </h2>
@@ -119,7 +119,7 @@ const Home: NextPage = () => {
             </ul>
             <p>{homeTranslation("about.fourthParagraph")}</p>
           </div>
-          <div className="relative aspect-square w-4/5 flex-shrink-0 self-center overflow-hidden rounded-full bg-gradient-to-b from-indigo-500 shadow-md sm:w-72 lg:self-start">
+          <div className="relative aspect-square w-3/5 flex-shrink-0 self-center overflow-hidden rounded-full bg-gradient-to-b from-indigo-500 shadow-md sm:w-72 lg:self-start">
             <Image
               alt="Adam Arkuszyński"
               src={MyPicture}
@@ -131,7 +131,7 @@ const Home: NextPage = () => {
       </section>
       <section
         id="projects"
-        className="prose prose-slate mx-auto my-14 max-w-5xl dark:prose-invert sm:my-24 md:my-36"
+        className="prose prose-slate mx-auto mt-28 max-w-5xl dark:prose-invert md:mt-36 lg:mt-48"
       >
         <h2>{homeTranslation("projects.title")}</h2>
         <Link href="/remax-peak">
@@ -151,7 +151,7 @@ const Home: NextPage = () => {
       {/* TODO: localization */}
       <section
         id="contact"
-        className="my-14 w-full sm:mx-auto sm:my-24 md:my-36 lg:max-w-2xl"
+        className="mt-28 w-full sm:mx-auto md:mt-36 lg:mt-48 lg:max-w-2xl"
       >
         <h2 className="mb-6 text-2xl font-bold lg:mb-12 lg:text-center lg:text-4xl">
           Contact
@@ -222,6 +222,7 @@ const Home: NextPage = () => {
           )}
         </form>
       </section>
+      <div className="h-20" />
     </>
   );
 };
