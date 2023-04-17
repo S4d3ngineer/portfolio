@@ -55,7 +55,7 @@ export default function RemaxPeak() {
             </ul>
           </div>
           <div className="relative overflow-hidden rounded-md shadow-lg">
-            <Image src={RemaxImg} alt="Strona główna RE/MAX Peak" />
+            <Image src={RemaxImg} alt="Strona główna RE/MAX Peak" priority />
           </div>
         </div>
         <div className="mb-16">

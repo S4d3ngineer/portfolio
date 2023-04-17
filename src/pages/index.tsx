@@ -13,6 +13,7 @@ import { z } from "zod";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import InputError from "~/components/InputError/InputError";
+import { QUERIES } from "~/constants";
 
 const technologiesList = [
   "TypeScript",
@@ -133,6 +134,7 @@ const Home: NextPage = () => {
               alt="Adam Arkuszyński"
               src={MyPicture}
               fill
+              sizes={`90vw, ${QUERIES.sm} 50vw, ${QUERIES.lg} 33vw`}
               className="object-cover object-right-bottom"
             />
           </div>
