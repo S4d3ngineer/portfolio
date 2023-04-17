@@ -21,16 +21,25 @@ const technologiesList = [
   "Styled Components",
 ];
 
-const FormSchema = z.object({
-  name: z.string(),
-  email: z.string().email(),
-  message: z.string().trim().min(1, { message: "Message cannot be empty" }),
-});
-
-type FormSchemaType = z.infer<typeof FormSchema>;
-
 const Home: NextPage = () => {
   const { t: homeTranslation } = useTranslation("home");
+  const { t: formTranslation } = useTranslation("contactForm");
+
+  const FormSchema = z.object({
+    name: z.string(),
+    email: z.string().email({
+      message: formTranslation("email.errorMessage") || "Invalid email",
+    }),
+    message: z
+      .string()
+      .trim()
+      .min(1, {
+        message:
+          formTranslation("message.errorMessage") || "Message cannot be empty",
+      }),
+  });
+
+  type FormSchemaType = z.infer<typeof FormSchema>;
 
   const {
     register,
@@ -72,7 +81,9 @@ const Home: NextPage = () => {
     } catch (e) {
       return setError("root", {
         type: "server",
-        message: "Error occured while sending a message",
+        message:
+          formTranslation("rootErrors.serverError") ||
+          "Message sent successfuly",
       });
     }
   };
@@ -154,7 +165,7 @@ const Home: NextPage = () => {
         className="mt-28 w-full sm:mx-auto md:mt-36 lg:mt-48 lg:max-w-2xl"
       >
         <h2 className="mb-6 text-2xl font-bold lg:mb-12 lg:text-center lg:text-4xl">
-          Contact
+          {homeTranslation("contact.title")}
         </h2>
         <form
           className="space-y-6"
@@ -167,7 +178,7 @@ const Home: NextPage = () => {
           <div className="flex flex-col gap-6 sm:flex-row sm:gap-3">
             <div className="w-full sm:w-1/2">
               <label htmlFor="name" className="font-medium">
-                Name
+                {formTranslation("name.name")}
               </label>
               <input
                 id="name"
@@ -178,7 +189,7 @@ const Home: NextPage = () => {
             </div>
             <div className="w-full sm:w-1/2">
               <label htmlFor="email" className="font-medium">
-                Email
+                {formTranslation("email.name")}
               </label>
               <input
                 id="email"
@@ -191,7 +202,7 @@ const Home: NextPage = () => {
           </div>
           <div>
             <label htmlFor="message" className="font-medium">
-              Message
+              {formTranslation("message.name")}
             </label>
             <textarea
               id="message"
@@ -212,12 +223,14 @@ const Home: NextPage = () => {
             }
             className="mx-auto block w-full rounded-lg bg-indigo-500 px-3 py-2 font-medium text-slate-200 disabled:bg-gray-500"
           >
-            {isSubmitting ? "sending..." : "Send email"}
+            {isSubmitting
+              ? formTranslation("submitButton.submittingMessage")
+              : formTranslation("submitButton.submitMessage")}
           </button>
           {errors.root && <InputError>{errors.root.message}</InputError>}
           {isSubmitSuccessful && (
             <p className="mx-auto w-fit font-medium text-green-600 sm:text-xl">
-              Message sent successfully!
+              {formTranslation("successMessage")}
             </p>
           )}
         </form>
@@ -231,7 +244,7 @@ export const getStaticProps = async ({ locale }: { locale: string }) => ({
   props: {
     ...(await serverSideTranslations(
       locale,
-      ["home", "homepage.about", "homepage.projects"],
+      ["home", "contactForm"],
       nextI18nConfig,
       ["en", "pl"]
     )),

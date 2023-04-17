@@ -1,0 +1,21 @@
+{
+  "name": {
+    "name": "Name"
+  },
+  "email": {
+    "name": "Email",
+    "errorMessage": "Invalid email"
+  },
+  "message": {
+    "name": "Message",
+    "errorMessage": "Message cannot be empty"
+  },
+  "submitButton": {
+    "submitMessage": "Send",
+    "submittingMessage": "sending..."
+  },
+  "rootErrors": {
+    "serverError": "Error occured while sending a message"
+  },
+  "successMessage": "Message sent successfuly!"
+}

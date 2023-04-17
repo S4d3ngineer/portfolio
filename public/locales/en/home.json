@@ -14,5 +14,8 @@
   "projects": {
     "title": "Projects",
     "remaxPeak": "A real estate agency site build from ground up with Next.js and Strapi."
+  },
+  "contact": {
+    "title": "Contact"
   }
 }

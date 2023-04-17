@@ -1,0 +1,21 @@
+{
+  "name": {
+    "name": "Imię"
+  },
+  "email": {
+    "name": "Email",
+    "errorMessage": "Nieprawidłowy email"
+  },
+  "message": {
+    "name": "Wiadomość",
+    "errorMessage": "Wiadomość nie może być pusta"
+  },
+  "submitButton": {
+    "submitMessage": "Wyślij",
+    "submittingMessage": "wysyłanie..."
+  },
+  "rootErrors": {
+    "serverError": "Podczas wysyłania wiadomości wystąpił błąd"
+  },
+  "successMessage": "Wiadomość została przesłana!"
+}

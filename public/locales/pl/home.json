@@ -14,5 +14,8 @@
   "projects": {
     "title": "Projekty",
     "remaxPeak": "Strona agencji nieruchomości zbudowana od podstaw z wykorzystaniem Next.js i Strapi."
+  },
+  "contact": {
+    "title": "Kontakt"
   }
 }

@@ -18,7 +18,7 @@ const stackList = [
 
 export default function RemaxPeak() {
   const { t: commonTranslation } = useTranslation("common");
-  const { t: projectTranslation } = useTranslation("project.remax-peak");
+  const { t: projectTranslation } = useTranslation("project.remaxPeak");
 
   return (
     <>
@@ -96,7 +96,7 @@ export const getStaticProps = async ({ locale }: { locale: string }) => ({
   props: {
     ...(await serverSideTranslations(
       locale,
-      ["common", "project.remax-peak"],
+      ["common", "project.remaxPeak"],
       nextI18nConfig,
       ["en", "pl"]
     )),
