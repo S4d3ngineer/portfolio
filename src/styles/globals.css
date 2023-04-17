@@ -35,6 +35,6 @@
   [multiple],
   textarea,
   select {
-    @apply w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
+    @apply w-full rounded-lg border-gray-300 shadow-sm invalid:ring-red-500 focus:border-indigo-500 focus:ring-indigo-500;
   }
 }

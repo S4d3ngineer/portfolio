@@ -12,6 +12,7 @@ import Link from "next/link";
 import { z } from "zod";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import InputError from "~/components/InputError/InputError";
 
 const technologiesList = [
   "TypeScript",
@@ -34,16 +35,45 @@ const Home: NextPage = () => {
   const {
     register,
     handleSubmit,
-    trigger,
-    formState: { errors },
+    reset,
+    setError,
+    formState: {
+      errors,
+      isSubmitting,
+      isSubmitted,
+      isSubmitSuccessful,
+      isValid,
+    },
   } = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
   });
 
-  const onSubmit: SubmitHandler<FormSchemaType> = async (data, e) => {
-    const isValid = await trigger();
-    if (!isValid) {
-      e?.preventDefault();
+  const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
+    const mailData = {
+      subject: `Portfiolio contact from ${data.name}`,
+      body: `Dane kontaktowe:\nemail: ${data.email || "brak"} \n\n${
+        data.message
+      }`,
+    };
+
+    try {
+      const response = await fetch("/api/sendMail/", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(mailData),
+      });
+      if (!response.ok) {
+        throw new Error("Error occured while trying to send email");
+      }
+      reset();
+    } catch (e) {
+      return setError("root", {
+        type: "server",
+        message: "Error occured while sending a message",
+      });
     }
   };
 
@@ -132,33 +162,31 @@ const Home: NextPage = () => {
           method="POST"
           noValidate
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          // onSubmit={handleSubmit(onSubmit)}
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          onSubmit={async (e) => {
-            const isValid = await trigger();
-            if (!isValid) {
-              e.preventDefault();
-            }
-          }}
+          onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex flex-col gap-6 sm:flex-row sm:gap-3">
             <div className="w-full sm:w-1/2">
               <label htmlFor="name" className="font-medium">
                 Name
               </label>
-              <input id="name" type="text" {...register("name")} />
-              {errors.name && (
-                <p className="text-sm text-red-500">{errors.name?.message}</p>
-              )}
+              <input
+                id="name"
+                type="text"
+                {...register("name")}
+                disabled={isSubmitting || isSubmitSuccessful}
+              />
             </div>
             <div className="w-full sm:w-1/2">
               <label htmlFor="email" className="font-medium">
                 Email
               </label>
-              <input id="email" type="email" {...register("email")} />
-              {errors.email && (
-                <p className="text-sm text-red-500">{errors.email?.message}</p>
-              )}
+              <input
+                id="email"
+                type="email"
+                {...register("email")}
+                disabled={isSubmitting || isSubmitSuccessful}
+              />
+              {errors.email && <InputError>{errors.email?.message}</InputError>}
             </div>
           </div>
           <div>
@@ -169,15 +197,29 @@ const Home: NextPage = () => {
               id="message"
               rows={9}
               {...register("message")}
+              disabled={isSubmitting || isSubmitSuccessful}
               className="resize-none"
             />
             {errors.message && (
-              <p className="text-sm text-red-500">{errors.message.message}</p>
+              <InputError>{errors.message.message}</InputError>
             )}
           </div>
-          <button className="mx-auto block w-full rounded-lg bg-indigo-500 px-3 py-2 font-medium text-slate-200">
-            Send email
+          <button
+            disabled={
+              isSubmitting ||
+              (isSubmitted && !isValid && !isSubmitSuccessful) ||
+              isSubmitSuccessful
+            }
+            className="mx-auto block w-full rounded-lg bg-indigo-500 px-3 py-2 font-medium text-slate-200 disabled:bg-gray-500"
+          >
+            {isSubmitting ? "sending..." : "Send email"}
           </button>
+          {errors.root && <InputError>{errors.root.message}</InputError>}
+          {isSubmitSuccessful && (
+            <p className="mx-auto w-fit font-medium text-green-600 sm:text-xl">
+              Message sent successfully!
+            </p>
+          )}
         </form>
       </section>
     </>
