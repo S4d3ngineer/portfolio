@@ -29,41 +29,44 @@ export default function Layout({ children }: Props) {
         </Link>
         <div className="flex items-center gap-1.5 space-x-1 text-[20px] sm:gap-3 sm:text-[24px]">
           {isMounted && (
-            <AnimatePresence>
-              {resolvedTheme === "dark" && (
-                <MotionConfig reducedMotion="user">
-                  <LazyMotion features={loadFeatures}>
-                    <m.button
-                      // TODO: add this classes bases on variant to parent div
-                      className="text-slate-400 transition-colors hover:text-slate-200"
-                      onClick={() => setTheme("light")}
-                      key="dark"
-                      initial={{ opacity: 0, rotate: 240 }}
-                      animate={{ opacity: 1, rotate: 0 }}
-                      exit={{ opacity: 0, rotate: -240 }}
-                    >
-                      <IoMoonSharp />
-                    </m.button>
-                  </LazyMotion>
-                </MotionConfig>
-              )}
-              {resolvedTheme === "light" && (
-                <MotionConfig reducedMotion="user">
-                  <LazyMotion features={loadFeatures}>
-                    <m.button
-                      className="text-slate-600 transition-colors hover:text-slate-800"
-                      onClick={() => setTheme("dark")}
-                      key="light"
-                      initial={{ opacity: 0, rotate: -240 }}
-                      animate={{ opacity: 1, rotate: 0 }}
-                      exit={{ opacity: 0, rotate: 240 }}
-                    >
-                      <TbSunFilled />
-                    </m.button>
-                  </LazyMotion>
-                </MotionConfig>
-              )}
-            </AnimatePresence>
+            <button
+              onClick={() =>
+                setTheme(resolvedTheme === "dark" ? "light" : "dark")
+              }
+            >
+              <AnimatePresence>
+                {resolvedTheme === "dark" && (
+                  <MotionConfig reducedMotion="user">
+                    <LazyMotion features={loadFeatures}>
+                      <m.div
+                        className="text-slate-400 transition-colors hover:text-slate-200"
+                        key="dark"
+                        initial={{ opacity: 0, rotate: 240 }}
+                        animate={{ opacity: 1, rotate: 0 }}
+                        exit={{ opacity: 0, rotate: -240 }}
+                      >
+                        <IoMoonSharp />
+                      </m.div>
+                    </LazyMotion>
+                  </MotionConfig>
+                )}
+                {resolvedTheme === "light" && (
+                  <MotionConfig reducedMotion="user">
+                    <LazyMotion features={loadFeatures}>
+                      <m.div
+                        className="text-slate-600 transition-colors hover:text-slate-800"
+                        key="light"
+                        initial={{ opacity: 0, rotate: -240 }}
+                        animate={{ opacity: 1, rotate: 0 }}
+                        exit={{ opacity: 0, rotate: 240 }}
+                      >
+                        <TbSunFilled />
+                      </m.div>
+                    </LazyMotion>
+                  </MotionConfig>
+                )}
+              </AnimatePresence>
+            </button>
           )}
           <LanguageToggle />
         </div>
