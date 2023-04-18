@@ -5,7 +5,7 @@ import { IoLogoGithub, IoLogoLinkedin, IoMoonSharp } from "react-icons/io5";
 import { TbSunFilled } from "react-icons/tb";
 import { useTheme } from "next-themes";
 import { MotionConfig, AnimatePresence, LazyMotion, m } from "framer-motion";
-import { useRouter } from "next/router";
+import LanguageToggle from "./LanguageToggle";
 
 const loadFeatures = () =>
   import("~/helpers/animation.features").then((res) => res.default);
@@ -18,18 +18,16 @@ export default function Layout({ children }: Props) {
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => setIsMounted(true), []);
 
-  const router = useRouter();
-
   const { resolvedTheme, setTheme } = useTheme();
 
   return (
     <div className="flex min-h-full flex-col justify-between">
       <header className="absolute left-0 right-0 top-0 mx-auto flex w-full max-w-7xl items-baseline justify-between px-4 py-4 sm:px-8">
-        <Link href="/" className="text-[30px] font-semibold">
+        <Link href="/" className="text-[26px] font-semibold sm:text-[30px]">
           <span className="text-indigo-500 dark:text-indigo-400">A</span>
           <span className="relative right-1">Arkuszyński</span>
         </Link>
-        <div className="flex items-center gap-2 space-x-1 text-[24px]">
+        <div className="flex items-center gap-1.5 space-x-1 text-[20px] sm:gap-3 sm:text-[24px]">
           {isMounted && (
             <AnimatePresence>
               {resolvedTheme === "dark" && (
@@ -67,18 +65,7 @@ export default function Layout({ children }: Props) {
               )}
             </AnimatePresence>
           )}
-          <div className="space-x-1">
-            {router.locales?.map((locale) => (
-              <button
-                key={locale}
-                onClick={() => {
-                  void router.push(router.pathname, undefined, { locale });
-                }}
-              >
-                {locale}
-              </button>
-            ))}
-          </div>
+          <LanguageToggle />
         </div>
       </header>
       <main className="flex-grow px-8">{children}</main>

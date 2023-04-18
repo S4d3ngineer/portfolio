@@ -159,7 +159,6 @@ const Home: NextPage = () => {
         </h3>
         <p>{homeTranslation("projects.remaxPeak")}</p>
       </section>
-      {/* TODO: localization */}
       <section
         id="contact"
         className="mt-28 w-full sm:mx-auto md:mt-36 lg:mt-48 lg:max-w-2xl"

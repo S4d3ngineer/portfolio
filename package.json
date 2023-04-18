@@ -11,6 +11,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.1.0",
     "@types/nodemailer": "^6.4.7",
+    "clsx": "^1.2.1",
     "framer-motion": "^10.10.0",
     "i18next": "^22.4.14",
     "next": "^13.2.4",
