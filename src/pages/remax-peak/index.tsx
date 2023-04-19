@@ -55,7 +55,11 @@ export default function RemaxPeak() {
             </ul>
           </div>
           <div className="relative overflow-hidden rounded-md shadow-lg">
-            <Image src={RemaxImg} alt="Strona główna RE/MAX Peak" priority />
+            <Image
+              src={RemaxImg}
+              alt={projectTranslation("imgAlt.remaxImg")}
+              priority
+            />
           </div>
         </div>
         <div className="mb-16">
@@ -65,7 +69,10 @@ export default function RemaxPeak() {
             <p>{projectTranslation("goal.secondParagraph")}</p>
           </div>
           <div className="relative overflow-hidden rounded-md shadow-lg">
-            <Image src={RemaxOffersImg} alt="Strona z ofertami RE/MAX Peak" />
+            <Image
+              src={RemaxOffersImg}
+              alt={projectTranslation("imgAlt.remaxOffersImg")}
+            />
           </div>
         </div>
         <div id="features" className="mb-16">
@@ -75,7 +82,10 @@ export default function RemaxPeak() {
             <p>{projectTranslation("features.secondParagraph")}</p>
           </div>
           <div className="relative mt-8 overflow-hidden rounded-md shadow-lg">
-            <Image src={RemaxConsentImg} alt="Banner zgód RE/MAX Peak" />
+            <Image
+              src={RemaxConsentImg}
+              alt={projectTranslation("imgAlt.remaxConsentImg")}
+            />
           </div>
         </div>
         <div className="prose prose-slate mx-auto mb-16 dark:prose-invert">

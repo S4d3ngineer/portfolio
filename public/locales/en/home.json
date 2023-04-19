@@ -1,5 +1,9 @@
 {
   "metaDescription": "Developer whose goal is to create accessible and user-friendly websites.",
+  "imgAlt": {
+    "myPicture": "Adam Arkuszyński - owner of portfolio",
+    "remaxImg": "Screenshot of remax-peak.pl home page"
+  },
   "hero": {
     "slogan": "Hi. I'm Adam.",
     "description": "My goal is to create accessible, user-friendly websites with a focus on great user experience, ensuring enjoyment and usability for all. "

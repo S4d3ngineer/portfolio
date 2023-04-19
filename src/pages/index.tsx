@@ -157,7 +157,7 @@ const Home: NextPage = () => {
           </div>
           <div className="relative aspect-square w-3/5 flex-shrink-0 self-center overflow-hidden rounded-full bg-gradient-to-b from-indigo-500 shadow-md sm:w-72 lg:self-start">
             <Image
-              alt="Adam Arkuszyński"
+              alt={homeTranslation("imgAlt.myPicture")}
               src={MyPicture}
               fill
               sizes={`90vw, ${QUERIES.sm} 50vw, ${QUERIES.lg} 33vw`}
@@ -175,7 +175,7 @@ const Home: NextPage = () => {
           <div className="relative overflow-hidden rounded-md shadow-lg">
             <Image
               src={RemaxImg}
-              alt="Zrzut strony głównej remax-peak.pl"
+              alt={homeTranslation("imgAlt.remaxImg")}
               className="my-0"
             />
           </div>
