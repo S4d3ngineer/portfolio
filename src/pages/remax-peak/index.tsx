@@ -34,14 +34,11 @@ export default function RemaxPeak() {
           <div className="prose prose-slate mx-auto w-fit dark:prose-invert">
             <h1>RE/MAX Peak</h1>
             <p>{projectTranslation("introduction.firstParagraph")}</p>
-            <a
-              href="https://remax-peak.pl/"
-              target="_blank"
-              className="mb-16 mt-8 block font-semibold text-primary dark:text-primary-dark-mode sm:text-xl"
-            >
-              {commonTranslation("goToSite")}
-            </a>
-            <h2>{projectTranslation("stack")}</h2>
+            <h2 className="mb-2 text-xl">
+              {projectTranslation("introduction.roleHeading")}
+            </h2>
+            <p>{projectTranslation("introduction.role")}</p>
+            <h2 className="mb-2 text-xl">{projectTranslation("stack")}</h2>
             <ul className="mb-8 pl-0">
               {stackList.map((item) => (
                 <li
@@ -53,6 +50,13 @@ export default function RemaxPeak() {
                 </li>
               ))}
             </ul>
+            <a
+              href="https://remax-peak.pl/"
+              target="_blank"
+              className="mb-16 mt-8 block font-semibold text-primary dark:text-primary-dark-mode sm:text-xl"
+            >
+              {commonTranslation("goToSite")}
+            </a>
           </div>
           <div className="relative overflow-hidden rounded-md shadow-lg">
             <Image
