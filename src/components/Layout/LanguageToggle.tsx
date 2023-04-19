@@ -1,20 +1,17 @@
-import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { MotionConfig, m } from "framer-motion";
 import clsx from "clsx";
+import Router, { useRouter } from "next/router";
 
 export default function LanguageToggle() {
   const router = useRouter();
-  const routerRef = useRef(router);
   const [currentLocale, setCurrentLocale] = useState(router.locale);
 
   useEffect(() => {
     if (currentLocale) {
-      void routerRef.current.push(routerRef.current.pathname, undefined, {
-        locale: currentLocale,
-      });
+      void Router.push(Router.pathname, undefined, { locale: currentLocale });
     }
-  }, [currentLocale, routerRef]);
+  }, [currentLocale]);
 
   const changeLanguageText = {
     pl: "Change site language to english",
