@@ -4,11 +4,8 @@ import { useState, type ReactNode, useEffect } from "react";
 import { IoLogoGithub, IoLogoLinkedin, IoMoonSharp } from "react-icons/io5";
 import { TbSunFilled } from "react-icons/tb";
 import { useTheme } from "next-themes";
-import { MotionConfig, AnimatePresence, LazyMotion, m } from "framer-motion";
+import { MotionConfig, AnimatePresence, m } from "framer-motion";
 import LanguageToggle from "./LanguageToggle";
-
-const loadFeatures = () =>
-  import("~/helpers/animation.features").then((res) => res.default);
 
 interface Props {
   children: ReactNode;
@@ -27,7 +24,7 @@ export default function Layout({ children }: Props) {
           <span className="text-indigo-500 dark:text-indigo-400">A</span>
           <span className="relative right-1">Arkuszyński</span>
         </Link>
-        <div className="flex items-center gap-1.5 space-x-1 text-[20px] sm:gap-3 sm:text-[24px]">
+        <div className="flex items-center gap-3 text-[22px] sm:gap-3.5 sm:text-[24px]">
           {isMounted && (
             <button
               onClick={() =>
@@ -37,32 +34,28 @@ export default function Layout({ children }: Props) {
               <AnimatePresence>
                 {resolvedTheme === "dark" && (
                   <MotionConfig reducedMotion="user">
-                    <LazyMotion features={loadFeatures}>
-                      <m.div
-                        className="text-slate-400 transition-colors hover:text-slate-200"
-                        key="dark"
-                        initial={{ opacity: 0, rotate: 240 }}
-                        animate={{ opacity: 1, rotate: 0 }}
-                        exit={{ opacity: 0, rotate: -240 }}
-                      >
-                        <IoMoonSharp />
-                      </m.div>
-                    </LazyMotion>
+                    <m.div
+                      className="text-slate-400 transition-colors hover:text-slate-200"
+                      key="dark"
+                      initial={{ opacity: 0, rotate: 240 }}
+                      animate={{ opacity: 1, rotate: 0 }}
+                      exit={{ opacity: 0, rotate: -240 }}
+                    >
+                      <IoMoonSharp />
+                    </m.div>
                   </MotionConfig>
                 )}
                 {resolvedTheme === "light" && (
                   <MotionConfig reducedMotion="user">
-                    <LazyMotion features={loadFeatures}>
-                      <m.div
-                        className="text-slate-600 transition-colors hover:text-slate-800"
-                        key="light"
-                        initial={{ opacity: 0, rotate: -240 }}
-                        animate={{ opacity: 1, rotate: 0 }}
-                        exit={{ opacity: 0, rotate: 240 }}
-                      >
-                        <TbSunFilled />
-                      </m.div>
-                    </LazyMotion>
+                    <m.div
+                      className="text-slate-600 transition-colors hover:text-slate-800"
+                      key="light"
+                      initial={{ opacity: 0, rotate: -240 }}
+                      animate={{ opacity: 1, rotate: 0 }}
+                      exit={{ opacity: 0, rotate: 240 }}
+                    >
+                      <TbSunFilled />
+                    </m.div>
                   </MotionConfig>
                 )}
               </AnimatePresence>
