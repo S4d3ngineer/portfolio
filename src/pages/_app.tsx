@@ -10,10 +10,6 @@ import "~/styles/globals.css";
 const loadFeatures = () =>
   import("~/helpers/animation.features").then((res) => res.default);
 
-const satoshi = localFont({
-  src: "../../public/Satoshi_Complete/Fonts/Variable/Satoshi-Variable.ttf",
-});
-
 const generalSans = localFont({
   src: "../../public/GeneralSans_Complete/Fonts/Variable/GeneralSans-Variable.ttf",
 });
