@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import { MotionConfig, m } from "framer-motion";
+import clsx from "clsx";
 
 export default function LanguageToggle() {
   const router = useRouter();
@@ -23,7 +24,7 @@ export default function LanguageToggle() {
   return (
     <>
       <div
-        className="flow-hidden space-x-0.5 rounded-lg border-[1px] border-gray-500 bg-slate-700 p-0.5 text-base font-semibold text-slate-100 transition-colors dark:bg-slate-800"
+        className="flow-hidden space-x-0.5 rounded-lg border-[1px] border-gray-500 bg-slate-700 p-0.5 text-base font-semibold text-white transition-colors dark:bg-slate-800"
         role="group"
       >
         {router.locales?.map((locale) => (
@@ -39,11 +40,17 @@ export default function LanguageToggle() {
                 <m.div
                   layoutId="background"
                   transition={{ ease: "backInOut", duration: 0.2 }}
-                  className="absolute inset-0 rounded-md bg-indigo-500"
+                  className="absolute inset-0 rounded-md bg-slate-100"
                 />
               )}
             </MotionConfig>
-            <span aria-hidden="true" className="relative">
+            <span
+              aria-hidden="true"
+              // className="relative"
+              className={clsx("relative", {
+                "text-black delay-150": currentLocale === locale,
+              })}
+            >
               {locale}
             </span>
             <span className="sr-only">

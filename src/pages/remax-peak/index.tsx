@@ -37,7 +37,7 @@ export default function RemaxPeak() {
             <a
               href="https://remax-peak.pl/"
               target="_blank"
-              className="mb-16 mt-8 block font-semibold text-indigo-500 dark:text-indigo-400 sm:text-xl"
+              className="mb-16 mt-8 block font-semibold text-primary dark:text-primary-dark-mode sm:text-xl"
             >
               {commonTranslation("goToSite")}
             </a>
@@ -48,7 +48,7 @@ export default function RemaxPeak() {
                   key={item}
                   className="flex items-center gap-1 sm:inline-flex"
                 >
-                  <FiChevronRight className="m-0 stroke-[4] text-indigo-500 dark:text-indigo-400" />
+                  <FiChevronRight className="m-0 stroke-[4] text-primary dark:text-primary-dark-mode" />
                   {item}
                 </li>
               ))}

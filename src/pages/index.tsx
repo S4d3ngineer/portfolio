@@ -14,6 +14,7 @@ import { type SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import InputError from "~/components/InputError/InputError";
 import { QUERIES } from "~/constants";
+import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 
 const technologiesList = [
   "TypeScript",
@@ -102,12 +103,37 @@ const Home: NextPage = () => {
       >
         <h1 className="mb-4 text-4xl font-semibold sm:text-6xl lg:text-7xl">
           <div className="leading-tight">{homeTranslation("hero.slogan")}</div>
-          <div className="leading-tight text-indigo-500 dark:text-indigo-400">
+          <div className="leading-tight text-primary dark:text-primary-dark-mode">
             Web developer.
           </div>
         </h1>
         <div className="prose prose-slate max-w-2xl dark:prose-invert sm:prose-xl">
           <Balancer>{homeTranslation("hero.description")}</Balancer>
+        </div>
+        <div className="mt-4 flex gap-6 text-lg font-medium sm:mt-6 sm:text-xl">
+          <a href="https://github.com/S4d3ngineer" target="_blank" className="">
+            <div className="flex items-center gap-2">
+              <IoLogoGithub />
+              <div className="group">
+                GitHub
+                <div className="h-0.5 w-0 bg-slate-700 transition-all duration-500 group-hover:w-full group-hover:duration-300 dark:bg-slate-300"></div>
+              </div>
+            </div>
+          </a>
+          {/* TODO: add pl link in the future */}
+          <a
+            href="https://www.linkedin.com/in/adam-arkuszynski/"
+            target="_blank"
+            className=""
+          >
+            <div className="flex items-center gap-2">
+              <IoLogoLinkedin />
+              <div className="group">
+                Linkedin
+                <div className="h-0.5 w-0 bg-slate-700 transition-all duration-500 group-hover:w-full group-hover:duration-300 dark:bg-slate-300"></div>
+              </div>
+            </div>
+          </a>
         </div>
       </section>
       <section id="about" className="mx-auto mt-14 max-w-5xl sm:mt-24 md:mt-40">
@@ -122,7 +148,7 @@ const Home: NextPage = () => {
             <ul className="py-4">
               {technologiesList.map((item) => (
                 <li key={item} className="flex items-center gap-1">
-                  <FiChevronRight className="m-0 stroke-[3] text-indigo-500 dark:text-indigo-400" />
+                  <FiChevronRight className="m-0 stroke-[3] text-primary dark:text-primary-dark-mode" />
                   {item}
                 </li>
               ))}
@@ -220,7 +246,7 @@ const Home: NextPage = () => {
               (isSubmitted && !isValid && !isSubmitSuccessful) ||
               isSubmitSuccessful
             }
-            className="mx-auto block w-full rounded-lg bg-indigo-500 px-3 py-2 font-medium text-slate-200 disabled:bg-gray-500"
+            className="mx-auto block w-full rounded-lg bg-primary px-3 py-2 font-medium text-white disabled:bg-gray-500 dark:bg-indigo-500 dark:disabled:bg-gray-500"
           >
             {isSubmitting
               ? formTranslation("submitButton.submittingMessage")
