@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState, type ReactNode, useEffect } from "react";
-// import { GitHub, Linkedin } from "react-icons/fi";
 import { IoLogoGithub, IoLogoLinkedin, IoMoonSharp } from "react-icons/io5";
 import { TbSunFilled } from "react-icons/tb";
 import { useTheme } from "next-themes";
@@ -65,20 +64,22 @@ export default function Layout({ children }: Props) {
         </div>
       </header>
       <main className="flex-grow px-8">{children}</main>
-      <footer className="mx-auto my-8 flex max-w-7xl items-center justify-center gap-4">
-        <a href="https://github.com/S4d3ngineer" target="_blank">
-          <IoLogoGithub size={32} />
+      <footer className="mx-auto my-8 flex max-w-7xl items-center justify-center gap-5 text-4xl">
+        <a
+          href="https://github.com/S4d3ngineer"
+          target="_blank"
+          className=" text-slate-600 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
+        >
+          <IoLogoGithub />
         </a>
         {/* TODO: add pl link in the future */}
-        <Link
+        <a
           href="https://www.linkedin.com/in/adam-arkuszynski/"
           target="_blank"
+          className=" text-slate-600 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
         >
-          <IoLogoLinkedin size={32} />
-        </Link>
-        {/* TODO: decide what to do with icons */}
-        {/* <GitHub /> */}
-        {/* <Linkedin /> */}
+          <IoLogoLinkedin />
+        </a>
       </footer>
     </div>
   );
