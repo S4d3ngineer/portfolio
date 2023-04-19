@@ -181,7 +181,9 @@ const Home: NextPage = () => {
           </div>
         </Link>
         <h3>
-          <Link href="/remax-peak">RE/MAX Peak</Link>
+          <Link href="/remax-peak" className="font-semibold">
+            RE/MAX Peak
+          </Link>
         </h3>
         <p>{homeTranslation("projects.remaxPeak")}</p>
       </section>

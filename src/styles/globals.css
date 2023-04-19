@@ -20,6 +20,10 @@
     @apply text-slate-900 dark:text-white;
   }
 
+  a {
+    @apply hover:no-underline;
+  }
+
   [type="text"],
   [type="email"],
   [type="url"],
