@@ -43,7 +43,6 @@ export default function LanguageToggle() {
             </MotionConfig>
             <span
               aria-hidden="true"
-              // className="relative"
               className={clsx("relative", {
                 "text-black delay-150": currentLocale === locale,
               })}
