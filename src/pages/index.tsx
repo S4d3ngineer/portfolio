@@ -149,7 +149,7 @@ const Home: NextPage = () => {
             <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.9, ease: "easeIn", delay: 0.3 }}
+              transition={{ duration: 0.9, ease: "easeIn", delay: 0.1 }}
               onAnimationComplete={() => setShowSetSloganSecondPart(true)}
               className="leading-tight"
             >
