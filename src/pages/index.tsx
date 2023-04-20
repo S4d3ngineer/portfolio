@@ -270,7 +270,7 @@ const Home: NextPage = () => {
               <Image
                 src={RemaxImg}
                 alt={homeTranslation("imgAlt.remaxImg")}
-                className="my-0 transition duration-700 hover:scale-110 hover:duration-300"
+                className="my-0"
               />
             </div>
           </Link>
