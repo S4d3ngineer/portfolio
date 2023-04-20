@@ -7,6 +7,8 @@ import RemaxImg from "public/remax-screenshot.png";
 import RemaxConsentImg from "public/remax-consent.png";
 import RemaxOffersImg from "public/remax-offers.png";
 import { FiChevronRight } from "react-icons/fi";
+import ImageWrapper from "~/components/ImageWrapper/ImageWrapper";
+import { STARNDAR_IMAGE_SIZES_ATTRIBUTE } from "~/constants";
 
 const stackList = [
   "TypeScript",
@@ -58,13 +60,15 @@ export default function RemaxPeak() {
               {commonTranslation("goToSite")}
             </a>
           </div>
-          <div className="relative overflow-hidden rounded-md shadow-lg">
+          <ImageWrapper>
             <Image
               src={RemaxImg}
               alt={projectTranslation("imgAlt.remaxImg")}
               priority
+              fill
+              sizes={STARNDAR_IMAGE_SIZES_ATTRIBUTE}
             />
-          </div>
+          </ImageWrapper>
         </div>
         <div className="mb-16">
           <div className="prose prose-slate mx-auto mb-8 dark:prose-invert">
@@ -72,12 +76,14 @@ export default function RemaxPeak() {
             <p>{projectTranslation("goal.firstParagraph")}</p>
             <p>{projectTranslation("goal.secondParagraph")}</p>
           </div>
-          <div className="relative overflow-hidden rounded-md shadow-lg">
+          <ImageWrapper>
             <Image
               src={RemaxOffersImg}
               alt={projectTranslation("imgAlt.remaxOffersImg")}
+              fill
+              sizes={STARNDAR_IMAGE_SIZES_ATTRIBUTE}
             />
-          </div>
+          </ImageWrapper>
         </div>
         <div id="features" className="mb-16">
           <div className="prose prose-slate mx-auto dark:prose-invert">
@@ -85,12 +91,14 @@ export default function RemaxPeak() {
             <p>{projectTranslation("features.firstParagraph")}</p>
             <p>{projectTranslation("features.secondParagraph")}</p>
           </div>
-          <div className="relative mt-8 overflow-hidden rounded-md shadow-lg">
+          <ImageWrapper>
             <Image
               src={RemaxConsentImg}
               alt={projectTranslation("imgAlt.remaxConsentImg")}
+              fill
+              sizes={STARNDAR_IMAGE_SIZES_ATTRIBUTE}
             />
-          </div>
+          </ImageWrapper>
         </div>
         <div className="prose prose-slate mx-auto mb-16 dark:prose-invert">
           <h2>{projectTranslation("problems.heading")}</h2>

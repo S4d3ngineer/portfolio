@@ -13,7 +13,7 @@ import { z } from "zod";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import InputError from "~/components/InputError/InputError";
-import { QUERIES } from "~/constants";
+import { QUERIES, STARNDAR_IMAGE_SIZES_ATTRIBUTE } from "~/constants";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { m, MotionConfig, type Variants } from "framer-motion";
 import { useState } from "react";
@@ -266,11 +266,13 @@ const Home: NextPage = () => {
         >
           <h2>{homeTranslation("projects.title")}</h2>
           <Link href="/remax-peak">
-            <div className="relative overflow-hidden rounded-md shadow-lg">
+            <div className="relative aspect-video overflow-hidden rounded-md shadow-lg">
               <Image
                 src={RemaxImg}
                 alt={homeTranslation("imgAlt.remaxImg")}
-                className="my-0"
+                className="my-0 object-cover"
+                fill
+                sizes={STARNDAR_IMAGE_SIZES_ATTRIBUTE}
               />
             </div>
           </Link>
