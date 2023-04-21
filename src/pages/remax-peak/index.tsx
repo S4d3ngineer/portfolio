@@ -8,7 +8,7 @@ import RemaxConsentImg from "public/remax-consent.png";
 import RemaxOffersImg from "public/remax-offers.png";
 import { FiChevronRight } from "react-icons/fi";
 import ImageWrapper from "~/components/ImageWrapper/ImageWrapper";
-import { STARNDAR_IMAGE_SIZES_ATTRIBUTE } from "~/constants";
+import { STANDARD_IMAGE_SIZES_ATTRIBUTE } from "~/constants";
 
 const stackList = [
   "TypeScript",
@@ -66,7 +66,7 @@ export default function RemaxPeak() {
               alt={projectTranslation("imgAlt.remaxImg")}
               priority
               fill
-              sizes={STARNDAR_IMAGE_SIZES_ATTRIBUTE}
+              sizes={STANDARD_IMAGE_SIZES_ATTRIBUTE}
             />
           </ImageWrapper>
         </div>
@@ -81,12 +81,12 @@ export default function RemaxPeak() {
               src={RemaxOffersImg}
               alt={projectTranslation("imgAlt.remaxOffersImg")}
               fill
-              sizes={STARNDAR_IMAGE_SIZES_ATTRIBUTE}
+              sizes={STANDARD_IMAGE_SIZES_ATTRIBUTE}
             />
           </ImageWrapper>
         </div>
         <div id="features" className="mb-16">
-          <div className="prose prose-slate mx-auto dark:prose-invert">
+          <div className="prose prose-slate mx-auto mb-8 dark:prose-invert">
             <h2>{projectTranslation("features.heading")}</h2>
             <p>{projectTranslation("features.firstParagraph")}</p>
             <p>{projectTranslation("features.secondParagraph")}</p>
@@ -96,7 +96,7 @@ export default function RemaxPeak() {
               src={RemaxConsentImg}
               alt={projectTranslation("imgAlt.remaxConsentImg")}
               fill
-              sizes={STARNDAR_IMAGE_SIZES_ATTRIBUTE}
+              sizes={STANDARD_IMAGE_SIZES_ATTRIBUTE}
             />
           </ImageWrapper>
         </div>

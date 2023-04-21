@@ -5,7 +5,6 @@ import { useTranslation } from "next-i18next";
 import nextI18nConfig from "next-i18next.config.mjs";
 import Balancer from "react-wrap-balancer";
 import Image from "next/image.js";
-import MyPicture from "public/my-picture.png";
 import RemaxImg from "public/remax-screenshot.png";
 import { FiChevronRight } from "react-icons/fi";
 import Link from "next/link";
@@ -13,7 +12,7 @@ import { z } from "zod";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import InputError from "~/components/InputError/InputError";
-import { QUERIES, STARNDAR_IMAGE_SIZES_ATTRIBUTE } from "~/constants";
+import { STANDARD_IMAGE_SIZES_ATTRIBUTE } from "~/constants";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { m, MotionConfig, type Variants } from "framer-motion";
 import { useState } from "react";
@@ -224,9 +223,11 @@ const Home: NextPage = () => {
           transition={sectionTransition}
         >
           <div className="prose prose-slate mx-auto dark:prose-invert sm:prose-lg">
-            <h2 className="mb-12 w-fit text-4xl font-bold">
-              {homeTranslation("about.title")}
-            </h2>
+            <div className="not-prose">
+              <h2 className="mb-6 w-fit text-2xl font-bold lg:mb-12 lg:text-4xl">
+                {homeTranslation("about.title")}
+              </h2>
+            </div>
             <p>{homeTranslation("about.firstParagraph")}</p>
             <p>{homeTranslation("about.secondParagraph")}</p>
             <p>{homeTranslation("about.thirdParagraph")}</p>
@@ -253,7 +254,7 @@ const Home: NextPage = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={sectionTransition}
         >
-          <h2 className="mx-auto mb-12 w-fit text-4xl">
+          <h2 className="mb-6 text-2xl lg:mb-12 lg:text-center lg:text-4xl">
             {homeTranslation("projects.title")}
           </h2>
           <Link href="/remax-peak">
@@ -263,7 +264,7 @@ const Home: NextPage = () => {
                 alt={homeTranslation("imgAlt.remaxImg")}
                 className="my-0 object-cover"
                 fill
-                sizes={STARNDAR_IMAGE_SIZES_ATTRIBUTE}
+                sizes={STANDARD_IMAGE_SIZES_ATTRIBUTE}
               />
             </div>
           </Link>

@@ -14,4 +14,4 @@ export const QUERIES = {
   "2xl": `(min-width: ${BREAKPOINTS["2xl"]})`,
 };
 
-export const STARNDAR_IMAGE_SIZES_ATTRIBUTE = `90vw, ${QUERIES["2xl"]} 80vw`;
+export const STANDARD_IMAGE_SIZES_ATTRIBUTE = `90vw, ${QUERIES["2xl"]} 80vw`;
