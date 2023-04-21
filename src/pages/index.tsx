@@ -223,33 +223,22 @@ const Home: NextPage = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={sectionTransition}
         >
-          <h2 className="mb-6 text-2xl font-bold">
-            {homeTranslation("about.title")}
-          </h2>
-          <div className="flex flex-col gap-16 lg:flex-row">
-            <div className="prose prose-slate dark:prose-invert">
-              <p>{homeTranslation("about.firstParagraph")}</p>
-              <p>{homeTranslation("about.secondParagraph")}</p>
-              <p>{homeTranslation("about.thirdParagraph")}</p>
-              <ul className="py-4">
-                {technologiesList.map((item) => (
-                  <li key={item} className="flex items-center gap-1">
-                    <FiChevronRight className="m-0 stroke-[3] text-primary dark:text-primary-dark-mode" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p>{homeTranslation("about.fourthParagraph")}</p>
-            </div>
-            <div className="relative aspect-square w-3/5 flex-shrink-0 self-center overflow-hidden rounded-full bg-gradient-to-b from-indigo-500 shadow-md sm:w-72 lg:self-start">
-              <Image
-                alt={homeTranslation("imgAlt.myPicture")}
-                src={MyPicture}
-                fill
-                sizes={`90vw, ${QUERIES.sm} 50vw, ${QUERIES.lg} 33vw`}
-                className="object-cover object-right-bottom"
-              />
-            </div>
+          <div className="prose prose-slate mx-auto dark:prose-invert sm:prose-lg">
+            <h2 className="mb-12 w-fit text-4xl font-bold">
+              {homeTranslation("about.title")}
+            </h2>
+            <p>{homeTranslation("about.firstParagraph")}</p>
+            <p>{homeTranslation("about.secondParagraph")}</p>
+            <p>{homeTranslation("about.thirdParagraph")}</p>
+            <ul className="not-prose py-4">
+              {technologiesList.map((item) => (
+                <li key={item} className="flex items-center gap-1">
+                  <FiChevronRight className="stroke-[3] text-primary dark:text-primary-dark-mode" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p>{homeTranslation("about.fourthParagraph")}</p>
           </div>
         </m.div>
       </section>
@@ -264,7 +253,9 @@ const Home: NextPage = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={sectionTransition}
         >
-          <h2>{homeTranslation("projects.title")}</h2>
+          <h2 className="mx-auto mb-12 w-fit text-4xl">
+            {homeTranslation("projects.title")}
+          </h2>
           <Link href="/remax-peak">
             <div className="relative aspect-video overflow-hidden rounded-md shadow-lg">
               <Image
