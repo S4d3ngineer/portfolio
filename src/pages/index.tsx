@@ -292,8 +292,8 @@ const Home: NextPage = () => {
           </h2>
           <form
             className="space-y-6"
-            action="https://formsubmit.co/0eace010ac3e7ca415b7d215a2fbea69"
-            method="POST"
+            // action="https://formsubmit.co/0eace010ac3e7ca415b7d215a2fbea69"
+            // method="POST"
             noValidate
             // eslint-disable-next-line @typescript-eslint/no-misused-promises
             onSubmit={handleSubmit(onSubmit)}
